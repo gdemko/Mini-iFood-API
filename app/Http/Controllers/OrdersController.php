@@ -7,28 +7,18 @@ use App\Ordered;
 
 class OrdersController extends Controller
 {
-    public function created(Request $request)
+    public function make(Request $request, $id = null)
     {
         try {
-            $orders = new Ordered;
-            $orders->description = $request->description;
-            $orders->save();
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => $e->getMessage()
-            ]);
-        }
-        
-    }
+            $order = new Ordered;
 
-    public function update(Request $request, $id)
-    {
-        try {
-            $orders = new Ordered;
-            $orders->findOrFail($id);
-            $orders->description = $request->description;
-            $orders->save();
+            if($id != null)
+            {
+                $order->findOrFail($id);
+            }
+            
+            $order->description = $request->description;
+            $order->save();
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
