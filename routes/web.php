@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('ordered')->group(function () {
+    Route::get('/', 'OrdersController@get');
+    Route::post('/', 'OrdersController@make');
+    Route::match(['put', 'patch'], '/{id}', 'OrdersController@make');
+    Route::delete('/{id}', 'OrdersController@delete');
+});
