@@ -4470,7 +4470,6 @@ return array(
     'Tymon\\JWTAuth\\Validators\\Validator' => $vendorDir . '/tymon/jwt-auth/src/Validators/Validator.php',
     'TypeError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
     'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
-    'UserSeed' => $baseDir . '/database/seeds/UserSeed.php',
     'UserSeeder' => $baseDir . '/database/seeds/UserSeeder.php',
     'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
