@@ -8,7 +8,7 @@ class Ordered extends Model
 {
     protected $fillable = [
         'user_id',
-        'valueTotal',
+        'value_total',
         'number',
         'description',
     ];

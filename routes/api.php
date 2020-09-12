@@ -23,12 +23,12 @@ Route::post('login', 'UserController@authenticate');
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('user', 'UserController@getAuthenticatedUser');
-
+    
     Route::prefix('ordered')->group(function () {
-        Route::get('/', 'OrdersController@get');
+        Route::get('/{id}', 'OrdersController@get');
         Route::post('/', 'OrdersController@make');
         Route::match(['put', 'patch'], '/{id}', 'OrdersController@make');
-        Route::delete('/{id}', 'OrdersController@delete');
+        Route::delete('/{id}', 'OrdersController@destroy');
     });
     
 });
