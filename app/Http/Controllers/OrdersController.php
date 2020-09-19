@@ -57,6 +57,25 @@ class OrdersController extends Controller
         }
     }
 
+    public function getAll()
+    {
+        try {
+            $order = new Ordered;
+            $orders = $order->all();
+            
+            return response()->json([
+                'success' => true,
+                'order' => $orders
+            ]);
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
     public function destroy($id)
     {
         try {

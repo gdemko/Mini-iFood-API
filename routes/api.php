@@ -25,6 +25,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('user', 'UserController@getAuthenticatedUser');
     
     Route::prefix('ordered')->group(function () {
+        Route::get('/', 'OrdersController@getAll');
         Route::get('/{id}', 'OrdersController@get');
         Route::post('/', 'OrdersController@make');
         Route::match(['put', 'patch'], '/{id}', 'OrdersController@make');
@@ -32,6 +33,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     });
 
     Route::prefix('product')->group(function () {
+        Route::get('/', 'ProductController@getAll');
         Route::get('/{id}', 'ProductController@get');
         Route::post('/', 'ProductController@make');
         Route::match(['put', 'patch'], '/{id}', 'ProductController@make');
