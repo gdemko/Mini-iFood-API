@@ -54,6 +54,25 @@ class ProductController extends Controller
         }
     }
 
+    public function getAll()
+    {
+        try {
+            $product = new Product;
+            $products = $product->all();
+            
+            return response()->json([
+                'success' => true,
+                'order' => $products
+            ]);
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
     public function destroy($id)
     {
         try {
