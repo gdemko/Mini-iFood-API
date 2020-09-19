@@ -30,5 +30,12 @@ Route::group(['middleware' => ['jwt.verify']], function() {
         Route::match(['put', 'patch'], '/{id}', 'OrdersController@make');
         Route::delete('/{id}', 'OrdersController@destroy');
     });
+
+    Route::prefix('product')->group(function () {
+        Route::get('/{id}', 'ProductController@get');
+        Route::post('/', 'ProductController@make');
+        Route::match(['put', 'patch'], '/{id}', 'ProductController@make');
+        Route::delete('/{id}', 'ProductController@destroy');
+    });
     
 });
