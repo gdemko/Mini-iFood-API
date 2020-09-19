@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit24dc1e32491d70e50efa7283a0204ba2
+class ComposerStaticInit3bb9f33c977a05f8b397da73934ea2d1
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -528,6 +528,7 @@ class ComposerStaticInit24dc1e32491d70e50efa7283a0204ba2
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Ordered' => __DIR__ . '/../..' . '/app/Ordered.php',
+        'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -4976,7 +4977,6 @@ class ComposerStaticInit24dc1e32491d70e50efa7283a0204ba2
         'Tymon\\JWTAuth\\Validators\\Validator' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Validators/Validator.php',
         'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
-        'UserSeed' => __DIR__ . '/../..' . '/database/seeds/UserSeed.php',
         'UserSeeder' => __DIR__ . '/../..' . '/database/seeds/UserSeeder.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
@@ -5083,10 +5083,10 @@ class ComposerStaticInit24dc1e32491d70e50efa7283a0204ba2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit24dc1e32491d70e50efa7283a0204ba2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit24dc1e32491d70e50efa7283a0204ba2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit24dc1e32491d70e50efa7283a0204ba2::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit24dc1e32491d70e50efa7283a0204ba2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3bb9f33c977a05f8b397da73934ea2d1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3bb9f33c977a05f8b397da73934ea2d1::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3bb9f33c977a05f8b397da73934ea2d1::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit3bb9f33c977a05f8b397da73934ea2d1::$classMap;
 
         }, null, ClassLoader::class);
     }
