@@ -22,6 +22,8 @@ class OrdersController extends Controller
             $order->number = $request->number;
             $order->description = $request->description;
             $order->save();
+            $order->products()->sync($request->products);
+            $order->products;
 
             return response()->json([
                 'success' => true,

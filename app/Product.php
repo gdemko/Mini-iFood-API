@@ -11,4 +11,12 @@ class Product extends Model
         'value',
         'description',
     ];
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function ordered()
+    {
+        return $this->belongsToMany('App\Ordered');
+    }
 }

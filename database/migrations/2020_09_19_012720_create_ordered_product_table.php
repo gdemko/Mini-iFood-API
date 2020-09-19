@@ -16,7 +16,7 @@ class CreateOrderedProductTable extends Migration
         Schema::create('ordered_product', function (Blueprint $table) {
 
             $table->foreignId('ordered_id')->references('id')->on('ordereds');
-            $table->foreignId('product_id')->references('id')->on('product');
+            $table->foreignId('product_id')->references('id')->on('products');
 
             $table->timestamps();
         });

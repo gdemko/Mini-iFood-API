@@ -12,4 +12,9 @@ class Ordered extends Model
         'number',
         'description',
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Product');
+    }
 }
