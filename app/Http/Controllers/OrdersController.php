@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ordered;
+use App\Product;
 
 class OrdersController extends Controller
 {
@@ -22,7 +23,10 @@ class OrdersController extends Controller
             $order->number = $request->number;
             $order->description = $request->description;
             $order->save();
-            $order->products()->sync($request->products);
+
+            $dataSync = $this->formatValuesSync($request->products);
+
+            $order->products()->sync($dataSync);
             $order->products;
 
             return response()->json([
@@ -90,6 +94,29 @@ class OrdersController extends Controller
                 'success' => true,
                 'message' => 'Registro deletado',
             ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function formatValuesSync($productsIds)
+    {
+        try {
+            $dataSync = [];
+
+            foreach ($productsIds as $id) {
+                $product = Product::find($id);
+
+                $dataSync[$id] =  [
+                    'value' => $product->value,
+                ];
+            }
+
+            return $dataSync;
 
         } catch (\Exception $e) {
             return response()->json([
