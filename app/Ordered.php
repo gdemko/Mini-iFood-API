@@ -71,7 +71,6 @@ class Ordered extends Model
 
             $order->products()->sync($dataSync['data']);
             $order->products;
-            $order->title_email = $title . " - #" . $order->id;
 
             return $order;
 

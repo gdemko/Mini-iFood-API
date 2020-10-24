@@ -16,7 +16,7 @@ class OrdersController extends Controller
 
           return response()->json([
               'success' => true,
-              'message' => trans('message.store_order'),
+              'message' => 'Pedido registrado com sucesso!',
               'data' => $order
           ], 201);
 
