@@ -17,7 +17,6 @@ class CreateOrderedsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->decimal('value_total', 8, 2);
-            $table->integer('number');
             $table->longText('description');
             $table->timestamps();
         });
