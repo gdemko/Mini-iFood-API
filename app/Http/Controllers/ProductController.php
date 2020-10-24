@@ -43,7 +43,7 @@ class ProductController extends Controller
             
             return response()->json([
                 'success' => true,
-                'order' => $product->findOrFail($id)
+                'product' => $product->findOrFail($id)
             ]);
             
         } catch (\Exception $e) {
@@ -62,7 +62,7 @@ class ProductController extends Controller
             
             return response()->json([
                 'success' => true,
-                'order' => $products
+                'products' => $products
             ]);
             
         } catch (\Exception $e) {
