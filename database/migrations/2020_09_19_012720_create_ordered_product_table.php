@@ -18,6 +18,7 @@ class CreateOrderedProductTable extends Migration
             $table->foreignId('ordered_id')->references('id')->on('ordereds');
             $table->foreignId('product_id')->references('id')->on('products');
             $table->decimal('value', 8, 2);
+            $table->bigInteger('quantity');
 
             $table->timestamps();
         });
