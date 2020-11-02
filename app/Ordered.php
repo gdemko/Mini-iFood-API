@@ -65,7 +65,7 @@ class Ordered extends Model
             $order->user_id = \Auth::user()->id;
             $dataSync = $this->formatValuesSync($request->products, $request->quantity);
 
-            $order->description = $request->description;
+            $order->description = $request->description != null ? $request->description : '';
             $order->value_total = $dataSync['total'];
             $order->save();
 
