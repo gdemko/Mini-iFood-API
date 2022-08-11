@@ -56,7 +56,7 @@ class Ordered extends Model
         try {
             $title = $order->id == null ? "Novo Pedido" : "Atualização do Pedido";
 
-            $order->user_id = \Auth::user()->id;
+            $order->user_id = auth()->user()->id;
             $dataSync = $this->formatValuesSync($request->products, $request->quantity);
 
             $order->description = $request->description != null ? $request->description : '';
