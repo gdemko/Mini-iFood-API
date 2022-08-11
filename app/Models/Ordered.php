@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,11 +20,9 @@ class Ordered extends Model
     public function store($request)
     {
         try {
-
-            $order = new Ordered;
+            $order = new Ordered();
 
             return $this->make($order, $request);
-
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
@@ -37,16 +35,13 @@ class Ordered extends Model
     public function edit($request)
     {
         try {
+            $order = new Ordered();
 
-            $order = new Ordered;
-
-            if($request->id != null)
-            {
+            if ($request->id != null) {
                 $order = $order->findOrFail($request->id);
             }
 
             return $this->make($order, $request);
-
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
@@ -58,8 +53,7 @@ class Ordered extends Model
 
     private function make(Ordered $order, $request)
     {
-        try
-        {
+        try {
             $title = $order->id == null ? "Novo Pedido" : "Atualização do Pedido";
 
             $order->user_id = \Auth::user()->id;
@@ -73,7 +67,6 @@ class Ordered extends Model
             $order->products;
 
             return $order;
-
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
@@ -89,9 +82,7 @@ class Ordered extends Model
             $dataSync = [];
 
             $total = 0;
-            foreach ($productsIds as $key => $id)
-            {
-                
+            foreach ($productsIds as $key => $id) {
                 $product = Product::find($id);
 
                 $total += $product->value * $quantitys[$key];
@@ -106,7 +97,6 @@ class Ordered extends Model
                 'data' => $dataSync,
                 'total' => $total
             ];
-
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
@@ -118,7 +108,7 @@ class Ordered extends Model
     public function get($id)
     {
         try {
-            $order = new Ordered;
+            $order = new Ordered();
 
             $order = $order->where('orders.id', $id)
                 ->join('users', 'users.id', 'orders.user_id')
@@ -128,8 +118,7 @@ class Ordered extends Model
             $value_total = 0;
             $quantity_total = 0;
 
-            foreach ($order->products as $product)
-            {
+            foreach ($order->products as $product) {
                 $product->category;
                 $quantity_total += $product->pivot->quantity;
                 $product->pivot->sub_total = number_format(($product->pivot->value * $product->pivot->quantity), 2);
@@ -138,7 +127,6 @@ class Ordered extends Model
             $order->quantity_total = $quantity_total;
 
             return $order;
-
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,

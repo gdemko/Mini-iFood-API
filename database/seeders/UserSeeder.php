@@ -1,6 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -12,18 +15,19 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Faz o cadastro no BD dos usuarios no sistema
-        DB::table('users')->insert([
+        User::updateOrCreate(['id' => 1], [
             'name' => 'Maicon Cerutti',
             'email' => 'cerutti.maicon@gmail.com',
             'password' => app('hash')->make('secret'),
         ]);
 
-        DB::table('users')->insert([
+        User::updateOrCreate(['id' => 2], [
             'name' => 'Guilherme',
             'email' => 'guilherme@gmail.com',
             'password' => app('hash')->make('secret'),
         ]);
 
-        factory(App\User::class, 10)->create();
+        //criar factory para criar usuarios
+        User::factory()->make()->save();
     }
 }
