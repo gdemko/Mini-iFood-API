@@ -17,6 +17,6 @@ class Product extends Model
      */
     public function ordered()
     {
-        return $this->belongsToMany('App\Ordered');
+        return $this->belongsToMany(Ordered::class);
     }
 }

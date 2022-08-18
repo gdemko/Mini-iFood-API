@@ -14,7 +14,7 @@ class Ordered extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Product')->withPivot('value', 'quantity')->withTimestamps();
+        return $this->belongsToMany(Product::class)->withPivot('value', 'quantity')->withTimestamps();
     }
 
     public function store($request)
