@@ -29,3 +29,7 @@ docker compose up -d
 ```
 
 Esperar containers carregarem.
+
+Ir para:
+
+[Localhost](http://localhost/)
